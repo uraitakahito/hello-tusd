@@ -2,12 +2,6 @@
 
 tusdの[gRPC Hooks](https://tus.github.io/tusd/advanced-topics/hooks/#grpc-hooks)を受け取り、アップロードファイルやイベント情報をコンソールに出力するスケルトンサーバー。
 
-## 前提条件
-
-- Python >= 3.12
-- [uv](https://docs.astral.sh/uv/)
-- Docker
-
 ## セットアップ
 
 ```bash
