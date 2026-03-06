@@ -9,6 +9,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "grpcio-tools>=1.66.1",
+    "ruff>=0.12.2",
 ]
 
 [build-system]

@@ -2,8 +2,8 @@ import asyncio
 import logging
 
 from grpclib.server import Server
-from hello_tusd.generated.hook_pb2 import HookResponse
-from hello_tusd.generated.hook_grpc import HookHandlerBase
+from hook_grpc import HookHandlerBase
+from hook_pb2 import HookResponse
 
 logging.basicConfig(
     level=logging.INFO,
