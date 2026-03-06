@@ -1,6 +1,7 @@
 import asyncio
 import logging
 
+import typer
 from grpclib.server import Server, Stream
 from hook_grpc import HookHandlerBase
 from hook_pb2 import HookRequest, HookResponse
@@ -10,6 +11,8 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
 logger = logging.getLogger(__name__)
+
+app = typer.Typer()
 
 
 class HookHandler(HookHandlerBase):
@@ -38,16 +41,20 @@ class HookHandler(HookHandlerBase):
         await stream.send_message(HookResponse())
 
 
-async def _serve():
+async def _serve(host: str, port: int) -> None:
     server = Server([HookHandler()])
-    await server.start("0.0.0.0", 8000)
-    logger.info("gRPC Hook server listening on port 8000")
+    await server.start(host, port)
+    logger.info("gRPC Hook server listening on %s:%d", host, port)
     await server.wait_closed()
 
 
-def main():
-    asyncio.run(_serve())
+@app.command()
+def main(
+    host: str = typer.Option("0.0.0.0", help="Bind address."),
+    port: int = typer.Option(8000, help="Listen port."),
+) -> None:
+    asyncio.run(_serve(host, port))
 
 
 if __name__ == "__main__":
-    main()
+    app()

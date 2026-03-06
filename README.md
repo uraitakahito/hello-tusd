@@ -18,6 +18,12 @@ make run
 
 ポート8000でgRPCサーバーが起動する。
 
+ホストやポートを変更する場合:
+
+```bash
+uv run hello-tusd --host 127.0.0.1 --port 9000
+```
+
 ```
 2026-03-06 23:07:12,083 [INFO] gRPC Hook server listening on port 8000
 ```
