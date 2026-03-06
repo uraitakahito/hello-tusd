@@ -9,6 +9,7 @@ generate:
 	uv run python -m grpc_tools.protoc \
 		--proto_path=proto/ \
 		--python_out=src/ \
+		--mypy_out=src/ \
 		--grpclib_python_out=src/ \
 		hook.proto
 
@@ -16,7 +17,7 @@ run: generate
 	uv run hello-tusd
 
 clean:
-	rm -f src/hook_pb2.py src/hook_grpc.py
+	rm -f src/hook_pb2.py src/hook_pb2.pyi src/hook_grpc.py
 
 lint:
 	uv run ruff check
