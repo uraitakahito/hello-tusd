@@ -7,13 +7,13 @@
 
 ```bash
 uv sync
-make generate
+uv run inv generate
 ```
 
 ## gRPC Hookサーバーの起動
 
 ```bash
-make run
+uv run inv run
 ```
 
 or

@@ -10,6 +10,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "grpcio-tools>=1.66.1",
+    "invoke>=2.2.0",
     "mypy-protobuf>=5.0.0",
     "pyright>=1.1.408",
     "ruff>=0.12.2",
