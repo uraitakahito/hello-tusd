@@ -1,9 +1,9 @@
 import asyncio
 import logging
 
-from grpclib.server import Server
+from grpclib.server import Server, Stream
 from hook_grpc import HookHandlerBase
-from hook_pb2 import HookResponse
+from hook_pb2 import HookRequest, HookResponse
 
 logging.basicConfig(
     level=logging.INFO,
@@ -13,8 +13,11 @@ logger = logging.getLogger(__name__)
 
 
 class HookHandler(HookHandlerBase):
-    async def InvokeHook(self, stream) -> None:
+    async def InvokeHook(self, stream: Stream[HookRequest, HookResponse]) -> None:
         request = await stream.recv_message()
+        if request is None:
+            await stream.send_message(HookResponse())
+            return
 
         upload = request.event.upload
         http_req = request.event.httpRequest
