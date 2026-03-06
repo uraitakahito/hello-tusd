@@ -14,3 +14,4 @@ extend-select = ["I"]
 
 [lint.isort]
 known-first-party = ["hello_tusd"]
+known-third-party = ["hook_pb2", "hook_grpc"]

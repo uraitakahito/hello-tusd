@@ -2,7 +2,6 @@ import asyncio
 import logging
 
 from grpclib.server import Server
-
 from hook_grpc import HookHandlerBase
 from hook_pb2 import HookResponse
 
