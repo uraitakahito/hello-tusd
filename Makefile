@@ -8,7 +8,7 @@ generate:
 		--python_out=src/hello_tusd/generated/ \
 		--grpclib_python_out=src/hello_tusd/generated/ \
 		hook.proto
-	sed -i '' 's/^import hook_pb2/from . import hook_pb2/' src/hello_tusd/generated/hook_grpc.py
+	sed -i 's/^import hook_pb2/from . import hook_pb2/' src/hello_tusd/generated/hook_grpc.py
 
 run: generate
 	uv run hello-tusd
