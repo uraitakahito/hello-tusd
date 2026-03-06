@@ -1,4 +1,4 @@
-"""invoke タスク定義 — Makefile からの移行先."""
+"""invoke タスク定義"""
 
 from invoke.context import Context
 from invoke.tasks import task  # pyright: ignore[reportUnknownVariableType]
