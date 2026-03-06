@@ -207,7 +207,8 @@ marimo/_lsp/
 __marimo__/
 
 # Protocol Buffers generated code
-src/hello_tusd/generated/
+src/hook_pb2.py
+src/hook_grpc.py
 
 # Docker
 docker-entrypoint.sh
