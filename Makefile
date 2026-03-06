@@ -1,4 +1,4 @@
-.PHONY: generate run clean
+.PHONY: generate run clean lint format
 
 # grpclib の protoc プラグインは絶対インポート (import hook_pb2) を生成し、
 # この挙動を設定で変更する手段はない。
@@ -17,3 +17,11 @@ run: generate
 
 clean:
 	rm -f src/hook_pb2.py src/hook_grpc.py
+
+lint:
+	uv run ruff check
+	uv run ruff format --check --diff
+
+format:
+	uv run ruff check --fix
+	uv run ruff format
