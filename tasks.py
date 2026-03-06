@@ -1,6 +1,7 @@
 """invoke タスク定義 — Makefile からの移行先."""
 
-from invoke import Context, task
+from invoke.context import Context
+from invoke.tasks import task  # pyright: ignore[reportUnknownVariableType]
 
 # grpclib の protoc プラグインは絶対インポート (import hook_pb2) を生成し、
 # この挙動を設定で変更する手段はない。
@@ -27,7 +28,7 @@ def generate(c: Context) -> None:
     )
 
 
-@task(pre=[generate])
+@task(pre=[generate])  # pyright: ignore[reportUntypedFunctionDecorator]
 def run(c: Context) -> None:
     """generate 後にサーバー起動."""
     c.run("uv run hello-tusd", pty=True)
