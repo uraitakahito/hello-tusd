@@ -16,16 +16,10 @@ make generate
 make run
 ```
 
-ポート8000でgRPCサーバーが起動する。
-
-ホストやポートを変更する場合:
+or
 
 ```bash
-uv run hello-tusd --host 127.0.0.1 --port 9000
-```
-
-```
-2026-03-06 23:07:12,083 [INFO] gRPC Hook server listening on port 8000
+uv run hello-tusd --host 0.0.0.0 --port 8000
 ```
 
 ## tusd Dockerコンテナの起動
