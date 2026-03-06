@@ -29,18 +29,8 @@ make run
 
 ## tusd Dockerコンテナの起動
 
-gRPC Hookサーバーを起動した状態で、別のターミナルからtusdコンテナを起動する。
-
 ```bash
 docker run -d --init --rm -p 8080:8080 --name tusd-container docker.io/tusproject/tusd:latest -host=0.0.0.0 -port=8080 -hooks-grpc=host.docker.internal:8000
-```
-
-`-hooks-grpc=host.docker.internal:8000` により、コンテナからホストマシン上のgRPC Hookサーバーに接続する。
-
-### コンテナの停止
-
-```bash
-docker stop tusd-container
 ```
 
 ## Starting the development server with Docker
