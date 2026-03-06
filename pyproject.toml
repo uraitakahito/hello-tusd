@@ -4,11 +4,15 @@ version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
     "grpclib[protobuf]>=0.4.7",
+    "typer>=0.24.1",
 ]
 
 [dependency-groups]
 dev = [
     "grpcio-tools>=1.66.1",
+    "invoke>=2.2.0",
+    "mypy-protobuf>=5.0.0",
+    "pyright>=1.1.408",
     "ruff>=0.12.2",
 ]
 
@@ -20,4 +24,4 @@ build-backend = "hatchling.build"
 packages = ["src/hello_tusd"]
 
 [project.scripts]
-hello-tusd = "hello_tusd.server:main"
+hello-tusd = "hello_tusd.server:app"

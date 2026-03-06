@@ -1,30 +1,25 @@
 # hello-tusd
 
-tusdの[gRPC Hooks](https://tus.github.io/tusd/advanced-topics/hooks/#grpc-hooks)を受け取り、アップロードファイルやイベント情報をコンソールに出力するスケルトンサーバー。
-
-## 前提条件
-
-- Python >= 3.12
-- [uv](https://docs.astral.sh/uv/)
-- Docker
+[tusd](https://github.com/tus/tusd)の[gRPC Hooks](https://tus.github.io/tusd/advanced-topics/hooks/#grpc-hooks)を受け取り、アップロードファイルやイベント情報をコンソールに出力するスケルトンサーバー。
+ファイルをアップロードするクライアントのサンプルは[hello-tus-js-client](https://github.com/uraitakahito/hello-tus-js-client)を想定しています。
 
 ## セットアップ
 
 ```bash
 uv sync
-make generate
+uv run inv generate
 ```
 
 ## gRPC Hookサーバーの起動
 
 ```bash
-make run
+uv run inv run
 ```
 
-ポート8000でgRPCサーバーが起動する。
+or
 
-```
-2026-03-06 23:07:12,083 [INFO] gRPC Hook server listening on port 8000
+```bash
+uv run hello-tusd --host 0.0.0.0 --port 8000
 ```
 
 ## tusd Dockerコンテナの起動
